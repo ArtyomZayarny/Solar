@@ -1,0 +1,298 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    margin: 0;
+    padding: 0;
+    font-family: $mainFont;
+}
+img {
+  width:100%;
+  height:auto;
+}
+li{
+    list-style:none;
+}
+a{
+    text-decoration: none;
+    color:#000;
+}
+a,button{
+    transition:all .3s ease;
+}
+.l-br {
+  border-left: 1px solid rgba(255,255,255,0.3);
+}
+
+/******************** CUSTOM SELECT **********************/
+/* The container must be positioned relative: */
+.custom-select {
+    position: relative;
+    font-family: $mainFont;
+  }
+  
+  .custom-select select {
+    display: none; /*hide original SELECT element: */
+  }
+  
+  .select-selected {
+    background-color: transparent;
+  }
+  
+  /* Style the arrow inside the select element: */
+  .select-selected:after {
+    position: absolute;
+    content: "";
+    top: 14px;
+    right: 10px;
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-color: #fff transparent transparent transparent;
+  }
+  
+  /* Point the arrow upwards when the select box is open (active): */
+  .select-selected.select-arrow-active:after {
+    border-color: transparent transparent #fff transparent;
+    top: 7px;
+  }
+  
+  /* style the items (options), including the selected item: */
+  .select-items div,.select-selected {
+    color: #ffffff;
+    padding: 8px 16px;
+    border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+    cursor: pointer;
+  }
+  
+  /* Style items (options): */
+  .select-items {
+    position: absolute;
+    background-color: DodgerBlue;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 99;
+  }
+  
+  /* Hide the items when the select box is closed: */
+  .select-hide {
+    display: none;
+  }
+  
+  .select-items div:hover, .same-as-selected {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+
+  /****************** TABS *******************/
+  /* Style the tab */
+.tab {
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+  border-radius: 4px;
+  background-color: #ffffff;
+}
+.tabs .tab .tablinks.active{
+  color:$activeTab;
+  border-color:$activeTab;
+}
+.tabs .tab .tablinks{
+  transition:all .3s ease;
+  border-bottom:2px solid transparent;
+  &:hover{
+    border-bottom:2px solid $activeTab;
+  }
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #fff;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #fff;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border-top: none;
+}
+.tabcontent {
+  animation: fadeEffect 1s; /* Fading effect takes 1 second */
+}
+
+/* Go from zero to full opacity */
+@keyframes fadeEffect {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+/*Animation*/
+@keyframes bounceIn {
+  
+  60% {
+    transform: translateX(-90px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes spin{
+  0%{
+    transform:rotateZ(0deg);
+  }
+  0%{
+    transform:rotateZ(360deg);
+  }
+}
+@keyframes spinOut{
+  0%{
+    transform:rotateZ(0deg);
+  }
+  0%{
+    transform:rotateZ(-360deg);
+  }
+}
+@keyframes bounce {
+  
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.cloud.x1 {
+  position: absolute;
+    top: 50%;
+    z-index: 0;
+    animation:moveclouds 12s linear infinite;
+  }
+  .cloud.x2 {
+    position: absolute;
+      top: 70%;
+      z-index: 0;
+      animation:moveclouds 7s linear infinite;
+    }
+    .cloud.x3 {
+      position: absolute;
+        top: 90%;
+        z-index: 0;
+        animation:moveclouds 5s linear infinite;
+      }
+
+@keyframes moveclouds {
+	0% {margin-left: 1000px;}
+	100% {margin-left: -1000px;}
+}
+
+/*Sidenav  menu*/
+/* The side navigation menu */
+.sidenav {
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 20; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: #eee;
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+/* The navigation menu links */
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  @include text($navy,15px,400,26px);
+  display: block;
+  transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+  transition: margin-left .5s;
+  padding: 20px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+.burger {
+  display:none;
+}
+
+
+/*ACCORDION*/
+.accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+  position:relative;
+  &:after{
+      content: '+';
+      position: absolute;
+      right: 20px;
+      font-size: 18px;
+  }
+}
+
+.active, .accordion:hover {
+  background-color: #ccc;
+}
+
+.panel {
+  padding: 0 18px;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}

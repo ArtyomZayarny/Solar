@@ -1,0 +1,49 @@
+@mixin flex($align,$justify,$wrap:nowrap) {
+    display:flex;
+    align-items:$align;
+    justify-content: $justify;
+    flex-wrap:$wrap;
+}
+@mixin text($color,$fz,$fw,$lh) {
+    color:$color;
+    font-size:$fz;
+    font-weight: $fw;
+    line-height: $lh;
+}
+@mixin borderFrame() {
+    border:1px solid $white;
+    border-radius: 4px;
+}
+
+@mixin leftBorder {
+    content:'';
+    display:block;
+    position:absolute;
+    width:1px;
+    height:100%;
+    background-color:rgba(255,255,255,0.3);
+}
+@mixin buyBtn ($padding-y,$padding-x) {
+    box-shadow: 0 8px 14px rgba(0, 107, 206, 0.3);
+    border-radius: 4px;
+    background-image: linear-gradient(182deg, #00f9ff 0%, #00d0f1 100%);
+    border: none;
+    padding: $padding-y $padding-x;
+}
+@mixin socialIcon($width,$height,$url) {
+    &:after{
+        content:'';
+        display:block;
+        width:$width;
+        height:$height;
+        position:absolute;
+        right:0;
+        bottom:0;
+        top:0;
+        left:0;
+        margin:auto;
+        background:url($url)no-repeat center;
+        background-size: cover;
+    }
+    
+}

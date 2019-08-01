@@ -1,0 +1,175 @@
+.header{
+    position:relative;
+    overflow: hidden;
+    height:100vh;
+    background-image: linear-gradient(-27deg, #1acbfd 0%, #345aff 98%);
+    z-index: 1;
+    &:after{
+        content: '';
+        width: 130%;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        background: url(../images/hero/hero-bg.png) no-repeat center;
+        background-size: cover;
+        z-index: -1;
+    }
+
+    .header-nav{
+        .container{
+            width: 100%;
+            max-width: 98%;
+            padding: 0 15px;
+            margin: 0 auto;
+        }
+       &__content{
+           @include flex(center,space-between);
+           padding:33px 0;
+           .left{
+               @include flex(center,space-between);
+           }
+           &__logo{
+               margin-right:15px;
+           }
+           &__lang-switcher{
+               width: 70px;
+               position: relative;
+               &:before{
+                @include leftBorder();
+               }
+           }
+            &__list{
+            @include flex(inherit,inherit);
+            li{
+                border:1px solid transparent;
+                transition:all .3s ease;
+                margin-right:10px;
+                a{
+                    display: inline-block;
+                    color: #fff;
+                    font-size: 15px;
+                    font-weight: 500;
+                    padding: 7px 15px;
+                }
+                &.sign-in{
+                   @include borderFrame();
+                }
+                &.l-br{
+                    position: relative;
+                    &:before{
+                        @include leftBorder();
+                        left:-6px;
+                    }
+                }
+                &:hover{
+                    @include borderFrame();
+                }
+                &:last-child{
+                    margin-right:0;
+                }
+            }
+            }
+
+
+        }
+    }
+    .hero-box{
+        padding-top: 150px;
+        &__content{
+            max-width: 730px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 0 15px;
+     
+            &__text{
+                color:#fff;
+                h1{
+                    @include text($white,70px,500,70px);
+                    letter-spacing: 0.16px;
+                    margin-bottom: 15px;
+                }
+                span{
+                    @include text($white,24px,400,30px);
+                    letter-spacing: 0.36px;
+                    display:inline-block;
+                    margin-bottom:30px;
+                }
+            }
+           
+           &__btn-a{
+               @include flex(center,center);
+               button{
+                @include buyBtn(19px, 66px);
+                transition:all .5s ease;
+                cursor:pointer;
+                &:hover{
+                    background:#20c4de;
+                }
+                span{
+                    @include text($white,18px,500,24px);
+                }
+            }
+
+
+            }
+        }
+    }
+}
+
+@media (max-width:992px) {
+    .header{
+        .header-nav{
+            .container{
+                max-width:100%;
+            }
+            &__content__list{
+                display:none;
+              }
+              .burger{
+                display:inline-block;
+                color:$white;
+                cursor:pointer;
+                font-size:30px;
+                line-height:30px;
+              }
+        }
+
+        .hero-box{
+            padding-top: 3%;
+            &__content{
+                max-width: 730px;
+                margin: 0 auto;
+                text-align: center;
+                padding: 0 15px;
+         
+                &__text{
+                    color:#fff;
+                    h1{
+                        font-size: 6vw;
+                    }
+                    spaan{font-size:2vw;}
+                }
+            }
+        }
+      }   
+}
+
+@media (max-width:425px) {
+    .header{
+        .hero-box{
+            padding-top: 100px;
+            &__content{
+                &__text{
+                    color:#fff;
+                    h1{
+                        @include text ($white,8vw,600,5vh);
+                    }
+                    span{
+                        font-size:16px;
+                    }
+                }
+            }
+        }
+    }
+
+}

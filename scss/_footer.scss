@@ -1,0 +1,113 @@
+.footer{
+    position: relative;
+    background-image: url('../images/footer/footer-bg.png');
+    background-repeat: no-repeat;
+    background-size:cover;
+    padding-top:200px;
+    background-color:$grey-bg;
+    .footer-content{
+        @include flex(inherit,space-around);
+        padding-bottom: 50px;
+        ul{
+            li{
+                a{
+                    @include text($navy,15px,400,26px);
+                    &.title{
+                        @include text($navy,16px,600,29px);
+                    }
+                    &:hover{
+                        text-decoration:underline;
+                    }
+                }
+            }
+        }
+        .btn-a {
+            @include flex(inherit,inherit);
+            a{
+                transition: all .3s ease;
+                display: block;
+                height: 38px;
+                border-radius: 4px;
+                overflow: hidden;
+                margin-right:15px;
+                &:hover{
+                    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+                }
+                &:last-child{
+                    margin-right:0;
+                }
+             }
+        }
+        .social{      
+            .social-btns{
+                @include flex(center,inherit);
+                margin-bottom:47px;
+                a{ 
+                    @include flex(center,center);
+                    width: 38px;
+                    height: 38px;
+                    border-radius: 6px;
+                    background-image: linear-gradient(-44deg, #1acbfd 0%, #345aff 100%);
+                    position:relative;
+                    &.facebook{
+                        @include socialIcon(8px,16px,'../images/footer/facebook-logo.png');
+                    }
+                    &.vk{
+                        @include socialIcon(18px,10px,'../images/footer/vk-logo.png');
+                    }
+                    &.tw{
+                        @include socialIcon(16px,13px,'../images/footer/twitter-logo-silhouette.png');
+                    }
+                    &.google{
+                        @include socialIcon(12px, 12px, '../images/footer/google-plus.png');
+                    }
+                   
+                    &:hover{
+                        background-image: linear-gradient(-44deg, #1cb3de 0%, #2d4cd4 100%);
+                    }
+                    margin-right:8px;
+                    &:last-child{
+                        margin-right:0;
+                    }
+                }
+            }
+            .designed-box{
+                @include flex(center,inherit);
+              span.text{
+                margin-right: 5px;
+                @include text($light-grey,12px,300,23px);
+              }
+            }
+        }
+    }
+}
+
+@media (max-width:992px) {
+    .footer{
+        padding-top:20px;
+        .footer-content{
+            .info,.traider,.menu{
+                display:none;
+            }
+        }
+    }
+}
+
+
+
+
+@media (max-width:768px) {
+    .footer {
+        .footer-content{
+            flex-wrap:wrap;
+            .social{
+                @include flex(center,center);
+                flex-direction: column;
+            }
+            .btn-a{
+                width:100%;
+               margin-bottom:40px;
+            }
+        }
+    }
+}

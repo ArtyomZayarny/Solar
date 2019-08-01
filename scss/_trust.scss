@@ -1,0 +1,49 @@
+.trust{
+    background-color: $grey-bg;
+    padding-bottom: 100px;
+  .container{
+      max-width: 95%;
+      margin:0 auto;
+  }
+    .trust-box{
+        background-color: $white;
+        &__content{
+            max-width: 940px;
+            @include flex(center,center);
+            flex-direction: column;
+            margin: 0 auto;
+            height: 560px;
+            h3{
+                @include text($navy,40px,400,50px);
+                letter-spacing: 0.09px;
+                padding:40px 0;
+            }
+            .trust-list{
+                display: grid;
+                grid-gap: 30px;
+                grid-template-columns: repeat(5,1fr);
+            }
+        }
+    }
+}
+
+@media (max-width:768px) {
+    .trust{
+        padding: 20px 0;
+    
+        .trust-box{
+           
+            &__content{ 
+                h3{
+                    padding:20px 0;
+                    @include text($navy,5vw,400,4vh);
+                }
+                padding:0 15px;
+                height: auto;
+                .trust-list{
+                    margin: 20px 0;
+                }
+            }
+        }
+    }
+}
